@@ -11,6 +11,7 @@
     "@codemirror/basic-setup": "^0.19.1",
     "@codemirror/lang-cpp": "^0.19.1",
     "@codemirror/lang-javascript": "^0.19.7",
+    "keyboardjs": "^2.6.4",
     "vue": "^3.2.25",
     "vue-router": "^4.0.14",
     "vuex": "^4.0.2"
