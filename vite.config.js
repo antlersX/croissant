@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   build: {
     manifest: true,
-    outDir: "dist",
+    outDir: "docs",
   },
   plugins: [vue()],
 });
