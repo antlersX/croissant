@@ -17,15 +17,7 @@
     </div>
     <div
       v-if="device != null"
-      class="
-        border
-        rounded-full
-        px-5
-        my-1
-        mx-1
-        cursor-pointer
-        hover:bg-gray-200 
-      "
+      class="border rounded-full px-5 my-1 mx-1 cursor-pointer hover:bg-gray-200"
     >
       upload
     </div>
@@ -46,10 +38,24 @@ export default {
         navigator.usb
           .requestDevice({ filters: [] })
           .then((usbDevice) => {
+            console.log("open device");
             this.device = usbDevice;
+
+            return this.device.open();
+          })
+          .then(() => {
             console.log(this.device);
+            console.log("选择配置");
+            return this.device.selectConfiguration(1);
+          })
+          .then(() => {
+            return this.device.claimInterface(1);
+          })
+          .then(() => {
+            console.log("开始控制输出");
           })
           .catch((e) => {
+            console.log(e);
             console.log("There is no device. " + e);
           });
       });
